@@ -369,6 +369,14 @@
                     if ( response.status == 200 )
                     {
                         alert("Inicio de sesión exitoso");
+                        sessionStorage.setItem('id_usuario',response.info.id)
+                        sessionStorage.setItem('nombre_usuario',response.info.nombre)
+                        sessionStorage.setItem('rol_usuario',response.info.rol)
+                        
+                        if (response.info.rol == 1)
+                        {
+                            window.location.href = "admin.html"
+                        }
                     }
                     else
                     {
