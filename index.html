@@ -324,7 +324,7 @@
                         <br>
                         <br>
                         <button id="btn_loggin" onclick="login()" >Ingresar</button>
-                        <button>Registrar</button>
+                        <button onclick="location.href = 'register.html';" >Registrar</button>
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -352,7 +352,7 @@
             var user_name = document.getElementById("user_name").value;
             var user_pass = document.getElementById("user_pass").value;
 
-            fetch('https://ipc1-sesion11.herokuapp.com/inicio-sesion', {
+            fetch('http://localhost:5001/inicio-sesion', {
 
                 method: 'POST',
                 headers: {
@@ -375,7 +375,12 @@
                         
                         if (response.info.rol == 1)
                         {
-                            window.location.href = "admin.html"
+                            window.location.href = "admin.html";
+                        }
+
+                        else if (response.info.rol == 2)
+                        {
+                            window.location.href = "user.html";
                         }
                     }
                     else
